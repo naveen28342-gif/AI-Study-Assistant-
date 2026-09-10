@@ -841,12 +841,12 @@ export function App() {
         onChange={handleFileUpload}
       />
 
-      {/* ─── Top Navigation Bar (Sorin Style) ─── */}
+      {/* ─── Top Navigation Bar ─── */}
       <header className="top-nav-bar">
         <div className="top-nav-left">
           <button className="brand-logo-btn" onClick={() => navigateTo('chat')}>
-            <div className="brand-orb-icon">🌐</div>
-            <span className="brand-title">Study-AI</span>
+            <div className="brand-orb-icon">✦</div>
+            <span className="brand-title">StudyAI</span>
           </button>
           <button
             className="sidebar-toggle-btn"
@@ -1129,7 +1129,7 @@ export function App() {
                     >
                       <div className="message-bubble-wrapper">
                         <div className="message-sender">
-                          {isUser ? "You" : "Study-AI"}
+                          {isUser ? "You" : "StudyAI"}
                         </div>
 
                         <div className="message-bubble">
@@ -1283,7 +1283,7 @@ export function App() {
                 {isActiveConversationLoading && (
                   <div className="message-row assistant">
                     <div className="message-bubble-wrapper">
-                      <div className="message-sender">Study-AI</div>
+                      <div className="message-sender">StudyAI</div>
                       <div className="message-bubble">
                         <div className="typing-indicator">
                           <span />
@@ -1297,20 +1297,20 @@ export function App() {
                 <div ref={chatBottomRef} />
               </div>
             ) : (
-              /* ─── Sorin-AI Welcome & Hero State ─── */
+              /* ─── Hero Welcome State ─── */
               <div className="sorin-hero-container">
-                {/* Concentric Pulsating Orb */}
+                {/* 3-ring Aurora Orb */}
                 <div className="concentric-orb-wrapper">
                   <div className="orb-ring-outer">
                     <div className="orb-ring-middle">
-                      <div className="orb-core">🌐</div>
+                      <div className="orb-core">✦</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Greeting */}
                 <h1 className="sorin-hero-title">
-                  Hey, I'm <span className="highlight-mint">StudyAI</span>. How can I help you today?
+                  Hey, I'm <span className="highlight-mint">StudyAI</span>. How can I help?
                 </h1>
 
                 {/* Quick Action Pills */}
