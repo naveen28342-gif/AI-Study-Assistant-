@@ -1702,11 +1702,18 @@ body {
 /* ═══════════════════════════════════════════════════════════════════ */
 
 .profile-page {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
   padding: 32px 20px;
-  max-width: 680px;
-  margin: 0 auto;
+  background: var(--bg-app);
   animation: fadeIn 0.35s ease;
+}
+
+.profile-page > * {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile-header-bar {
@@ -1993,11 +2000,18 @@ body {
 
 /* ─── Legal Pages ─── */
 .legal-page {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
   padding: 36px 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  background: var(--bg-app);
   animation: fadeIn 0.35s ease;
+}
+
+.legal-page > * {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .legal-header { margin-bottom: 22px; }
