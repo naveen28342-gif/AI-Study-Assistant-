@@ -262,6 +262,19 @@ export function App() {
   const [activeNavTab, setActiveNavTab] = useState<'chatbot' | 'dashboard' | 'quizzes' | 'flashcards' | 'help'>('chatbot');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Track viewport width for mobile behavior
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 900;
+      setIsMobile(mobile);
+      if (mobile) setSidebarOpen(false);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const [conversations, setConversations] = useState<Conversation[]>([
     {
@@ -845,7 +858,7 @@ export function App() {
       <header className="top-nav-bar">
         <div className="top-nav-left">
           <button className="brand-logo-btn" onClick={() => navigateTo('chat')}>
-            <div className="brand-orb-icon">✦</div>
+            <div className="brand-orb-icon">🎓</div>
             <span className="brand-title">StudyAI</span>
           </button>
           <button
@@ -948,8 +961,16 @@ export function App() {
 
       {/* ─── App Body: Sidebar + Main Canvas ─── */}
       <div className="app-body-container">
+        {/* Mobile Sidebar Backdrop */}
+        {isMobile && (
+          <div
+            className={`sidebar-backdrop ${sidebarOpen ? 'visible' : ''}`}
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         {/* Left Sidebar */}
-        <aside className={`sidebar ${sidebarOpen ? "" : "collapsed"}`}>
+        <aside className={`sidebar ${isMobile ? (sidebarOpen ? 'open' : 'collapsed') : (sidebarOpen ? '' : 'collapsed')}`}>
           <div className="sidebar-content-scroll">
             <button className="new-chat-button" onClick={handleNewChat}>
               <span>✏️</span>
@@ -1003,6 +1024,7 @@ export function App() {
                       setActiveConversationId(conversation.id);
                       setError(null);
                       setOpenConversationMenuId(null);
+                      if (isMobile) setSidebarOpen(false);
                     }}
                   >
                     <div className="conv-card-meta">
@@ -1303,7 +1325,7 @@ export function App() {
                 <div className="concentric-orb-wrapper">
                   <div className="orb-ring-outer">
                     <div className="orb-ring-middle">
-                      <div className="orb-core">✦</div>
+                      <div className="orb-core">🎓</div>
                     </div>
                   </div>
                 </div>
@@ -1500,6 +1522,60 @@ export function App() {
           )}
         </main>
       </div>
+
+      {/* ─── Mobile Bottom Navigation ─── */}
+      <nav className="mobile-bottom-nav">
+        <button
+          className={`mobile-nav-item ${activeNavTab === 'chatbot' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveNavTab('chatbot');
+            navigateTo('chat');
+          }}
+        >
+          <span className="mobile-nav-icon">💬</span>
+          <span className="mobile-nav-label">Chat</span>
+        </button>
+        <button
+          className={`mobile-nav-item ${activeNavTab === 'quizzes' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveNavTab('quizzes');
+            handleGenerateQuiz();
+          }}
+        >
+          <span className="mobile-nav-icon">📝</span>
+          <span className="mobile-nav-label">Quizzes</span>
+        </button>
+        <button
+          className={`mobile-nav-item ${activeNavTab === 'flashcards' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveNavTab('flashcards');
+            handleGenerateFlashcards();
+          }}
+        >
+          <span className="mobile-nav-icon">🗂️</span>
+          <span className="mobile-nav-label">Cards</span>
+        </button>
+        <button
+          className={`mobile-nav-item ${activeNavTab === 'dashboard' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveNavTab('dashboard');
+            navigateTo('profile');
+          }}
+        >
+          <span className="mobile-nav-icon">👤</span>
+          <span className="mobile-nav-label">Profile</span>
+        </button>
+        <button
+          className={`mobile-nav-item ${activeNavTab === 'help' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveNavTab('help');
+            navigateTo('privacy');
+          }}
+        >
+          <span className="mobile-nav-icon">❓</span>
+          <span className="mobile-nav-label">Help</span>
+        </button>
+      </nav>
     </div>
   );
 }
