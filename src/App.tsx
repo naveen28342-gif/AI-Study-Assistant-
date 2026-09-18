@@ -55,7 +55,7 @@ type QuizProgress = {
 type AppView = 'chat' | 'profile' | 'privacy' | 'terms';
 
 const ACCEPTED_FILE_TYPES =
-  "image/*,application/pdf,.doc,.docx,.txt,.csv,.tsv,.md,.markdown,.json,.xml,.html,.css,.js,.jsx,.ts,.tsx,.py,.java,.cpp,.c,.sql,.log,.rtf,.xlsx,.xls,.pptx,.ppt,text/*";
+  "image/*,.jpg,.jpeg,.png,.gif,.webp,.bmp,.svg,.tiff,.tif,.heic,.heif,.avif,.ico,.raw,.cr2,.nef,.arw,.dng,.orf,.rw2,application/pdf,.doc,.docx,.txt,.csv,.tsv,.md,.markdown,.json,.xml,.html,.css,.js,.jsx,.ts,.tsx,.py,.java,.cpp,.c,.sql,.log,.rtf,.xlsx,.xls,.pptx,.ppt,text/*";
 
 function formatFileSize(bytes?: number): string {
   if (!bytes || isNaN(bytes)) return "";

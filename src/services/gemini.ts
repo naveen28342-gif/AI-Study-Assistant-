@@ -41,7 +41,7 @@ export interface ChatMessage {
 export function isImageFile(file: File): boolean {
   return (
     file.type.startsWith("image/") ||
-    /\.(jpe?g|png|webp|gif|bmp|svg|tiff|heic|heif)$/i.test(file.name)
+    /\.(jpe?g|png|webp|gif|bmp|svg|tiff?|heic|heif|avif|ico|raw|cr2|nef|arw|dng|orf|rw2)$/i.test(file.name)
   );
 }
 
@@ -80,7 +80,7 @@ export function getFileIcon(name: string, type?: string): string {
   const lowerName = name.toLowerCase();
   const lowerType = (type || "").toLowerCase();
 
-  if (lowerType.startsWith("image/") || /\.(jpe?g|png|webp|gif|bmp|svg)$/i.test(lowerName)) return "🖼️";
+  if (lowerType.startsWith("image/") || /\.(jpe?g|png|webp|gif|bmp|svg|tiff?|heic|heif|avif|ico|raw|cr2|nef|arw|dng|orf|rw2)$/i.test(lowerName)) return "🖼️";
   if (lowerType === "application/pdf" || lowerName.endsWith(".pdf")) return "📄";
   if (lowerName.endsWith(".docx") || lowerName.endsWith(".doc")) return "📝";
   if (/\.(csv|tsv|xlsx|xls)$/i.test(lowerName) || lowerType.includes("sheet") || lowerType.includes("excel")) return "📊";
@@ -178,11 +178,21 @@ async function runDocumentInteraction(file: File | null, prompt: string): Promis
       // Direct multimodal image input
       const base64Data = await fileToBase64(file);
       let mimeType = file.type;
-      if (!mimeType) {
-        if (file.name.endsWith(".png")) mimeType = "image/png";
-        else if (file.name.endsWith(".webp")) mimeType = "image/webp";
-        else if (file.name.endsWith(".gif")) mimeType = "image/gif";
-        else mimeType = "image/jpeg";
+      if (!mimeType || mimeType === "application/octet-stream") {
+        const ext = file.name.split(".").pop()?.toLowerCase() || "";
+        const mimeMap: Record<string, string> = {
+          jpg: "image/jpeg", jpeg: "image/jpeg",
+          png: "image/png", webp: "image/webp",
+          gif: "image/gif", bmp: "image/bmp",
+          svg: "image/svg+xml", tiff: "image/tiff", tif: "image/tiff",
+          heic: "image/heic", heif: "image/heif",
+          avif: "image/avif", ico: "image/x-icon",
+          cr2: "image/x-canon-cr2", nef: "image/x-nikon-nef",
+          arw: "image/x-sony-arw", dng: "image/x-adobe-dng",
+          orf: "image/x-olympus-orf", rw2: "image/x-panasonic-rw2",
+          raw: "image/x-raw",
+        };
+        mimeType = mimeMap[ext] || "image/jpeg";
       }
       input.push({
         type: "image",

@@ -1008,6 +1008,7 @@ body {
   justify-content: space-between;
   padding-top: 6px;
   border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
 }
 
 .sorin-bottom-left {
@@ -1050,6 +1051,8 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 14px rgba(255,255,255,0.25);
   transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .sorin-send-btn:hover:not(:disabled) {
@@ -1071,6 +1074,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════════════════════════════════ */
@@ -2199,6 +2203,7 @@ body {
   /* Adjust app body to account for bottom nav */
   .app-body-container {
     height: calc(100vh - 56px - 56px); /* top nav + bottom nav */
+    height: calc(100dvh - 56px - 56px); /* dynamic viewport for mobile browsers */
   }
 
   /* Action pills responsive */
@@ -2215,7 +2220,7 @@ body {
 
   /* Adjust chat dock to sit above bottom nav */
   .chat-dock-footer {
-    padding: 8px 12px 10px;
+    padding: 8px 12px calc(10px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Model pill badge hide on tablet */
@@ -2267,7 +2272,8 @@ body {
 
   /* Adjust app body for shorter nav */
   .app-body-container {
-    height: calc(100vh - 50px - 56px);
+    height: calc(100vh - 50px - 52px);
+    height: calc(100dvh - 50px - 52px);
   }
 
   /* Main panel edge-to-edge */
@@ -2327,9 +2333,19 @@ body {
     font-size: 0.8rem;
   }
 
-  /* Chat dock footer */
+  /* Chat dock footer — extra padding to stay above mobile-bottom-nav */
   .chat-dock-footer {
-    padding: 6px 8px 8px;
+    padding: 6px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Ensure send button row never collapses on phone */
+  .sorin-input-bottom-row {
+    min-height: 36px;
+  }
+
+  /* Keep input card visible above bottom nav */
+  .sorin-input-card {
+    overflow: visible;
   }
 
   /* Message bubbles */
@@ -2514,6 +2530,20 @@ body {
 
   .sidebar { width: 90vw; min-width: 90vw; }
   .sidebar.collapsed { width: 90vw; min-width: 90vw; }
+
+  /* Send button compact on tiny screens */
+  .sorin-send-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    gap: 3px;
+  }
+
+  .sorin-input-card {
+    padding: 8px 8px 6px;
+  }
+
+  /* Attached file name truncates more aggressively */
+  .input-attached-name { max-width: 100px; }
 }
 
 /* ═════════════════════════════════════════════════════════════════ */
