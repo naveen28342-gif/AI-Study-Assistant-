@@ -2203,10 +2203,10 @@ body {
     color: #ffffff;
   }
 
-  /* Adjust app body to account for bottom nav */
+  /* Adjust app body to account for bottom nav with extra buffer */
   .app-body-container {
-    height: calc(100vh - 112px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 112px - env(safe-area-inset-bottom, 0px));
+    height: calc(100vh - 130px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 130px - env(safe-area-inset-bottom, 0px));
   }
 
   /* Action pills responsive */
@@ -2274,10 +2274,10 @@ body {
 
   .sidebar-backdrop { top: 50px; }
 
-  /* Adjust app body for shorter nav */
+  /* Adjust app body for shorter nav, generous buffer */
   .app-body-container {
-    height: calc(100vh - 102px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 102px - env(safe-area-inset-bottom, 0px));
+    height: calc(100vh - 130px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 130px - env(safe-area-inset-bottom, 0px));
   }
 
   /* Main panel edge-to-edge */
@@ -2288,7 +2288,7 @@ body {
 
   /* Chat scroll area — extra bottom padding so hero input clears bottom nav */
   .chat-scroll-area {
-    padding: 14px 12px 20px;
+    padding: 14px 12px 60px;
   }
 
   /* Hero section phone adjustments */
