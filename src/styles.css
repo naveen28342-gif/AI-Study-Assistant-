@@ -2205,8 +2205,8 @@ body {
 
   /* Adjust app body to account for bottom nav */
   .app-body-container {
-    height: calc(100vh - 56px - 56px); /* top nav + bottom nav */
-    height: calc(100dvh - 56px - 56px); /* dynamic viewport for mobile browsers */
+    height: calc(100vh - 112px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 112px - env(safe-area-inset-bottom, 0px));
   }
 
   /* Action pills responsive */
@@ -2276,8 +2276,8 @@ body {
 
   /* Adjust app body for shorter nav */
   .app-body-container {
-    height: calc(100vh - 50px - 52px);
-    height: calc(100dvh - 50px - 52px);
+    height: calc(100vh - 102px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 102px - env(safe-area-inset-bottom, 0px));
   }
 
   /* Main panel edge-to-edge */
