@@ -2220,7 +2220,7 @@ body {
 
   /* Adjust chat dock to sit above bottom nav */
   .chat-dock-footer {
-    padding: 8px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    padding: 8px 12px calc(14px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Model pill badge hide on tablet */
@@ -2278,13 +2278,13 @@ body {
 
   /* Main panel edge-to-edge */
   .main-panel {
-    margin: 4px;
+    margin: 4px 4px 6px;
     border-radius: 12px;
   }
 
-  /* Chat scroll area tighter padding */
+  /* Chat scroll area — extra bottom padding so hero input clears bottom nav */
   .chat-scroll-area {
-    padding: 14px 12px;
+    padding: 14px 12px 20px;
   }
 
   /* Hero section phone adjustments */
@@ -2333,9 +2333,9 @@ body {
     font-size: 0.8rem;
   }
 
-  /* Chat dock footer — extra padding to stay above mobile-bottom-nav */
+  /* Chat dock footer — generous padding to stay well above mobile-bottom-nav */
   .chat-dock-footer {
-    padding: 6px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+    padding: 6px 8px calc(18px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Ensure send button row never collapses on phone */
