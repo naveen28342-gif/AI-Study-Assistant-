@@ -85,9 +85,6 @@ export default function AuthPage({ onSignIn, onNavigate }: AuthPageProps) {
             <span>{loading ? 'Signing in…' : 'Continue with Google'}</span>
           </button>
 
-          <p className="auth-card-note">
-            No credit card required · Free to use
-          </p>
         </div>
 
         {/* Legal */}
