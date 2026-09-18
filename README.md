@@ -77,18 +77,7 @@ Naveen Kumar D
 GitHub: @naveen28342-gif
 LinkedIn: naveen28342
 Portfolio: naveen28342-gif.github.io/my-portfolio-website
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190358" src="https://github.com/user-attachments/assets/27cbc749-1037-4cb4-a15e-87eb0e4c4228" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190519" src="https://github.com/user-attachments/assets/36b3211e-55e6-4bf5-b2c1-79c1f9a74133" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190546" src="https://github.com/user-attachments/assets/61840b48-74cc-4d4b-ae92-934ac0903c65" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190607" src="https://github.com/user-attachments/assets/f916135b-5c00-4a9c-bd00-1900f184fb7f" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190659" src="https://github.com/user-attachments/assets/d7e4ab8b-3a0a-4e21-8f29-41cb511aca3f" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190748" src="https://github.com/user-attachments/assets/c73e44d9-c95d-4e6c-8038-3aae38a77840" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190758" src="https://github.com/user-attachments/assets/c2b457cf-b98b-4ad5-854a-e6f9b6d53b43" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190819" src="https://github.com/user-attachments/assets/9762c3e0-4b75-4f54-85f8-fc13130d82be" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190835" src="https://github.com/user-attachments/assets/3e2e25ca-5a47-40e7-852b-f2e8cd2f6d5c" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 190938" src="https://github.com/user-attachments/assets/989cbe88-dfe2-4c92-84d7-0299e404868b" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 191000" src="https://github.com/user-attachments/assets/7eaaa3ba-d20a-4fe4-9d05-08c4c765a173" />
-<img width="2879" height="1799" alt="Screenshot 2026-07-05 191023" src="https://github.com/user-attachments/assets/877f420d-69bf-49d7-bd1d-c01ac301dab3" />
+
 
 
 
