@@ -801,6 +801,7 @@ export function App() {
 
   const navigateBack = useCallback(() => {
     setCurrentView('chat');
+    setActiveNavTab('chatbot');
   }, []);
 
   // ─── Loading state ───
@@ -820,28 +821,10 @@ export function App() {
     return <AuthPage onSignIn={signInWithGoogle} onNavigate={(v) => navigateTo(v as AppView)} />;
   }
 
-  // ─── View Routing ───
-  if (currentView === 'profile') {
-    return (
-      <ProfilePage
-        profile={profile}
-        onBack={navigateBack}
-        onNavigate={(v) => navigateTo(v as AppView)}
-        onSignOut={signOut}
-        onProfileUpdated={refreshProfile}
-      />
-    );
-  }
+  // ─── Determine if showing a sub-view inside the app shell ───
+  const isSubView = currentView === 'profile' || currentView === 'privacy' || currentView === 'terms';
 
-  if (currentView === 'privacy') {
-    return <PrivacyPolicy onBack={navigateBack} />;
-  }
-
-  if (currentView === 'terms') {
-    return <TermsAndConditions onBack={navigateBack} />;
-  }
-
-  // ─── Main Chat View (Sorin-AI Light Glassmorphism) ───
+  // ─── Main App Shell (always rendered for authenticated users) ───
   return (
     <div className="app-wrapper">
       {/* Hidden universal file input */}
@@ -1132,6 +1115,23 @@ export function App() {
 
         {/* ─── Main Panel Canvas (Frosted Glass) ─── */}
         <main className="main-panel">
+          {isSubView ? (
+            /* ─── Sub-view pages rendered inside the app shell ─── */
+            <div className="chat-scroll-area">
+              {currentView === 'profile' && (
+                <ProfilePage
+                  profile={profile}
+                  onBack={navigateBack}
+                  onNavigate={(v) => navigateTo(v as AppView)}
+                  onSignOut={signOut}
+                  onProfileUpdated={refreshProfile}
+                />
+              )}
+              {currentView === 'privacy' && <PrivacyPolicy onBack={navigateBack} />}
+              {currentView === 'terms' && <TermsAndConditions onBack={navigateBack} />}
+            </div>
+          ) : (
+          <>
           {error && (
             <div className="auth-error" style={{ margin: "14px 20px 0" }}>
               <span>⚠️</span> {error}
@@ -1519,6 +1519,8 @@ export function App() {
                 </div>
               </div>
             </div>
+          )}
+          </>
           )}
         </main>
       </div>
