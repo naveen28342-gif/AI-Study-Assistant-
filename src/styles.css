@@ -2079,6 +2079,7 @@ body {
   position: fixed;
   inset: 0;
   top: 56px;
+  bottom: calc(56px + env(safe-area-inset-bottom, 0px));
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -2107,7 +2108,7 @@ body {
   .sidebar {
     position: fixed;
     top: 56px;
-    bottom: 0;
+    bottom: calc(56px + env(safe-area-inset-bottom, 0px));
     left: 0;
     width: 272px;
     min-width: 272px;
@@ -2259,6 +2260,7 @@ body {
     min-width: 82vw;
     max-width: 320px;
     top: 50px;
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
   }
 
   .sidebar.collapsed {
