@@ -2147,13 +2147,11 @@ body {
 
   .mobile-bottom-nav {
     display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
+    flex-shrink: 0;
     height: calc(56px + env(safe-area-inset-bottom, 0px));
     padding-bottom: env(safe-area-inset-bottom, 0px);
-    background: rgba(9,9,11,0.92);
+    background: rgba(9,9,11,0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--border-subtle);
@@ -2203,10 +2201,7 @@ body {
     color: #ffffff;
   }
 
-  /* Reserve space for the fixed bottom nav via padding */
-  .app-body-container {
-    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
-  }
+  /* No padding-bottom needed — bottom nav is now a flow element */
 
   /* Action pills responsive */
   .action-pills-row {
@@ -2273,10 +2268,7 @@ body {
 
   .sidebar-backdrop { top: 50px; }
 
-  /* Reserve space for the fixed bottom nav via padding */
-  .app-body-container {
-    padding-bottom: calc(52px + env(safe-area-inset-bottom, 0px));
-  }
+  /* No padding-bottom needed — bottom nav is now a flow element */
 
   /* Main panel edge-to-edge */
   .main-panel {
