@@ -2203,12 +2203,9 @@ body {
     color: #ffffff;
   }
 
-  /* Adjust app body to account for bottom nav — flex-grow: 0 prevents
-     the container from expanding under the fixed bottom nav */
+  /* Reserve space for the fixed bottom nav via padding */
   .app-body-container {
-    flex-grow: 0;
-    height: calc(100vh - 56px - 56px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 56px - 56px - env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Action pills responsive */
@@ -2276,11 +2273,9 @@ body {
 
   .sidebar-backdrop { top: 50px; }
 
-  /* Adjust app body for shorter nav — flex-grow: 0 to respect height */
+  /* Reserve space for the fixed bottom nav via padding */
   .app-body-container {
-    flex-grow: 0;
-    height: calc(100vh - 50px - 52px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 50px - 52px - env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(52px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Main panel edge-to-edge */
