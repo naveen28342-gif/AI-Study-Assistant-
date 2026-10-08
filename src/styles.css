@@ -2203,8 +2203,10 @@ body {
     color: #ffffff;
   }
 
-  /* Adjust app body to account for bottom nav with extra buffer */
+  /* Adjust app body to account for bottom nav — flex-grow: 0 prevents
+     the container from expanding under the fixed bottom nav */
   .app-body-container {
+    flex-grow: 0;
     height: calc(100vh - 56px - 56px - env(safe-area-inset-bottom, 0px));
     height: calc(100dvh - 56px - 56px - env(safe-area-inset-bottom, 0px));
   }
@@ -2274,8 +2276,9 @@ body {
 
   .sidebar-backdrop { top: 50px; }
 
-  /* Adjust app body for shorter nav, generous buffer */
+  /* Adjust app body for shorter nav — flex-grow: 0 to respect height */
   .app-body-container {
+    flex-grow: 0;
     height: calc(100vh - 50px - 52px - env(safe-area-inset-bottom, 0px));
     height: calc(100dvh - 50px - 52px - env(safe-area-inset-bottom, 0px));
   }
