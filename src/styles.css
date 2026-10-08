@@ -2205,8 +2205,8 @@ body {
 
   /* Adjust app body to account for bottom nav with extra buffer */
   .app-body-container {
-    height: calc(100vh - 130px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 130px - env(safe-area-inset-bottom, 0px));
+    height: calc(100vh - 56px - 56px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 56px - 56px - env(safe-area-inset-bottom, 0px));
   }
 
   /* Action pills responsive */
@@ -2223,8 +2223,8 @@ body {
 
   /* Adjust chat dock to sit above bottom nav */
   .chat-dock-footer {
-    padding: 8px 12px calc(14px + env(safe-area-inset-bottom, 0px));
-    z-index: 40; /* Ensure it stays above mobile-bottom-nav */
+    padding: 8px 12px 10px;
+    z-index: 40;
   }
 
   /* Model pill badge hide on tablet */
@@ -2276,8 +2276,8 @@ body {
 
   /* Adjust app body for shorter nav, generous buffer */
   .app-body-container {
-    height: calc(100vh - 130px - env(safe-area-inset-bottom, 0px));
-    height: calc(100dvh - 130px - env(safe-area-inset-bottom, 0px));
+    height: calc(100vh - 50px - 52px - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 50px - 52px - env(safe-area-inset-bottom, 0px));
   }
 
   /* Main panel edge-to-edge */
@@ -2286,9 +2286,9 @@ body {
     border-radius: 12px;
   }
 
-  /* Chat scroll area — extra bottom padding so hero input clears bottom nav */
+  /* Chat scroll area — extra bottom padding so content clears docked input + bottom nav */
   .chat-scroll-area {
-    padding: 14px 12px 60px;
+    padding: 14px 12px 80px;
   }
 
   /* Hero section phone adjustments */
@@ -2337,10 +2337,10 @@ body {
     font-size: 0.8rem;
   }
 
-  /* Chat dock footer — generous padding to stay well above mobile-bottom-nav */
+  /* Chat dock footer — positioned above mobile-bottom-nav */
   .chat-dock-footer {
-    padding: 6px 8px calc(18px + env(safe-area-inset-bottom, 0px));
-    z-index: 40; /* Ensure it stays above mobile-bottom-nav */
+    padding: 6px 8px 8px;
+    z-index: 40;
   }
 
   /* Ensure send button row never collapses on phone */
